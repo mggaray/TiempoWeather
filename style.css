@@ -1,0 +1,53 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(34,193,195,1) 10%, rgba(255,226,163,1) 100%);
+    background-repeat: no-repeat;
+}
+
+.container{
+    margin: 5% auto;
+    max-width: 900px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.row{
+    flex-flow: row wrap;
+}
+
+.container__form{
+    width: 80%;
+    padding: 3%;
+    background-color: white;
+}
+
+.weather{
+    margin: 3%;
+    padding: 3%;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.weather__info{
+    width: 80%;
+}
+
+.weather__info__container{
+    display: flex;
+    align-items: baseline;
+}
+
+.weather__info__container>*{
+    margin-right: 5%;
+}
