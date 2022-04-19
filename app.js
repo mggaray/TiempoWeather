@@ -17,8 +17,14 @@ setWeatherInfo=(data)=>{
     tempValue.textContent= `Temperatura actual: ${temperatureConverter(data.main.temp)}°`;
     maxTemp.textContent= `Maxima ${temperatureConverter(data.main.temp_max)}°`;
     minTemp.textContent= `Minima ${temperatureConverter(data.main.temp_min)}°`;
-    subValue.textContent= data.weather[0].description;
+    let desc= data.weather[0].description;
+    subValue.textContent= desc;
 }
+
+setWeatherImg=(desc)=>{
+    
+}
+
 
 fetchInfo=(url)=>{
     fetch(url)  
@@ -52,3 +58,5 @@ btnSend.addEventListener("click", ()=>{
     const url= `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&lang=es&appid=1e30fda674cd5c0e908463a4cc26fccd`;
     fetchInfo(url);
 })
+
+

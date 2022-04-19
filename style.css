@@ -3,11 +3,16 @@
 
 }
 
+:root{
+    --header: #2F3A8F;
+    --back: #FEECE9;
+}
+
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     height: 100vh;
-    background: linear-gradient(0deg, rgba(34,193,195,1) 10%, rgba(255,226,163,1) 100%);
+    background-color: #CCD1E4;
     background-repeat: no-repeat;
 }
 
@@ -24,17 +29,31 @@ body{
     flex-flow: row wrap;
 }
 
+.col{
+    flex-direction: column;
+}
+
 .container__form{
     width: 80%;
     padding: 3%;
-    background-color: white;
+    background-color: var(--back);
+    border-radius: 5px;
+}
+
+.btnSend{
+    background-color: var(--header);
+    color: var(--back);
+    padding: 1%;
+    border: none;
+    border-radius: 5px;
 }
 
 .weather{
     margin: 3%;
     padding: 3%;
     width: 80%;
-    background-color: white;
+    background-color: var(--back);
+    border-radius: 5px;
     display: flex;
     flex-direction: row;
 }
@@ -50,4 +69,8 @@ body{
 
 .weather__info__container>*{
     margin-right: 5%;
+}
+
+h1,h2,h3,label{
+    color: var(--header);
 }
