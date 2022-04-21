@@ -8,6 +8,7 @@ let weatherImg= document.querySelector(".weather__info__img");
 let maxTemp= document.querySelector(".weather__info__maxTemp");
 let minTemp= document.querySelector(".weather__info__minTemp")
 let subValue= document.querySelector(".weather__info__subValue");
+let body=document.querySelector("body");
 
 var date = new Date;
 var hour= date.getHours();
@@ -15,6 +16,11 @@ var hour= date.getHours();
 function temperatureConverter(valNum) {
     return Math.floor((valNum- 273.15));
   } 
+
+ setBodyBgr=(url)=> {
+     body.style.backgroundImage=`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})` 
+    };
+
 
 setWeatherInfo=(data)=>{
     container.classList.remove("hidden");
@@ -32,28 +38,44 @@ setWeatherImg=(data)=>{
     console.log(id);
 
     switch ((true)) {
-        case (id>=200 &&id<=232):
-        weatherImg.src="/animated/thunder.svg"
+
+        case (id>=200 &&id<=232): //truenos
+            weatherImg.src="/animated/thunder.svg"
+            setBodyBgr("https://wallpapercave.com/wp/wp9119616.jpg");
             break;
 
-        case id==801:
-            hour>=7 && hour<=19? weatherImg.src="/animated/cloudy-day-1.svg": weatherImg.src="/animated/cloudy-nigth-1.svg";
+        case id==801: //poco nublado
+           if (hour>=7 && hour<=19){
+               weatherImg.src="/animated/cloudy-day-1.svg"
+               setBodyBgr("https://images.pexels.com/photos/412462/pexels-photo-412462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            }
+            else{
+                weatherImg.src="/animated/cloudy-nigth-1.svg";
+                setBodyBgr("https://wallpaperaccess.com/full/3397089.jpg");
+            }
             break;
 
-        case 802:
-            hour>=7 && hour<=19? weatherImg.src="/animated/cloudy-day-3.svg": weatherImg.src="/animated/cloudy-night-3.svg";
+        case 802: // nublado
+            if(hour>=7 && hour<=19){
+                weatherImg.src="/animated/cloudy-day-3.svg"
+                setBodyBgr("https://images.pexels.com/photos/404984/pexels-photo-404984.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            }else{
+                weatherImg.src="/animated/cloudy-night-3.svg"
+                setBodyBgr("https://images.pexels.com/photos/734986/pexels-photo-734986.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            }
             break;
 
-        case (id>=803 && id<=804):
-        weatherImg.src="/animated/cloudy.svg"
+        case (id>=803 && id<=804): //muy nublado
+            weatherImg.src="/animated/cloudy.svg"
+            setBodyBgr("https://wallpaperaccess.com/full/1244184.jpg")
             break;
 
-        case (id>=300 &&id<=321):
+        case (id>=300 &&id<=321): //llovizna
             hour>=7 && hour<=19? weatherImg.src="/animated/rainy1.svg": weatherImg.src="/animated/rainy4.svg";
             break;
 
         
-        case(id>=500 &&id<=531):
+        case(id>=500 &&id<=531): //lluvia
             if(id== 501 || id==502){
                 weatherImg.src="/animated/rainy-4.svg"
             }
@@ -61,17 +83,26 @@ setWeatherImg=(data)=>{
             break;
     
 
-        case (id>=600 &&id<=622):
-        weatherImg.src="/animated/snowy-6.svg"
+        case (id>=600 &&id<=622): //nieve
+            weatherImg.src="/animated/snowy-6.svg"
+            setBodyBgr("https://images.pexels.com/photos/773953/pexels-photo-773953.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
             break;
         
             
-        case (id>=700 &&id<=781):
+        case (id>=700 &&id<=781): //lluevia fuerte
             weatherImg.src="/animated/rainy-4.svg"
+            setBodyBgr("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAMOGHt_Zvsl3hCxEV7euM-DuBeD1neELRZTYihTYcXFq_2ivwBio4utwN8LVNRSreQl8&usqp=CAU");
                 break;
         
-        case id==800:
-        hour>=7 && hour<=19? weatherImg.src="/animated/day.svg": weatherImg.src="/animated/night.svg";
+        case id==800: //despejado
+        if(hour>=7 && hour<=19){
+            weatherImg.src="/animated/day.svg"
+            setBodyBgr("https://wallpaperaccess.com/full/175912.jpg");
+        } 
+        else{
+            weatherImg.src="/animated/night.svg";
+            setBodyBgr("https://images.unsplash.com/photo-1595178302776-fa04e6d45879?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80");
+        } 
     }
 }
 

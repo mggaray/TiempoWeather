@@ -14,11 +14,12 @@ body{
     height: 100vh;
     background-color: #CCD1E4;
     background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .container{
     margin: 5% auto;
-    max-width: 700px;
+    max-width: 900px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
